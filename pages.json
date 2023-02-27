@@ -38,16 +38,16 @@
                     "enablePullDownRefresh": false
                 }
                 
-                }
-                ,{
-                    "path" : "good_list/good_list",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
+                },
+              {
+                              "path" : "good_list/good_list",
+                              "style" :                                                                                    
+                          {
+                              "navigationBarTitleText": "",
+                              "enablePullDownRefresh": false
+                          }
+                          
+                          }
             ]
   }],
   "tabBar": {
@@ -86,7 +86,7 @@
     "navigationBarBackgroundColor": "#c00000",
     "backgroundColor": "#FFFFFF",
     "app-plus": {
-      "background": "#efeff4"
+      "background": "#FFFFFF"
     }
   }
 }
