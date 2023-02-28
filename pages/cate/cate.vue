@@ -1,14 +1,15 @@
 <template>
   <view>
+    <my-search></my-search>
     <view class="scroll-box">
-      <scroll-view scroll-y="true" class="left-scroll" :style="{height: wh
+      <scroll-view scroll-y="true" class="left-scroll" :style="{'height': wh
 + 'px'}">
         <block v-for="(item,i) in cateList" :key="i">
           <view :class="['left-item',active===i?'active':'' ]" @click="changeActive(i)">{{item.cat_name}}</view>
         </block>
 
       </scroll-view>
-      <scroll-view scroll-y="true" class="right-scroll" :style="{height:wh+'px'}" :scroll-top="scrollTop">
+      <scroll-view scroll-y="true" class="right-scroll" :style="{'height':wh+'px'}" :scroll-top="scrollTop">
         <view class="cate-lv2" v-for="(item2,i2) in cateLevel2" :key="i2">
           <view class="cate-lv2-item">
             /{{item2.cat_name}}/
@@ -40,9 +41,9 @@
     },
     onLoad() {
       const res = uni.getSystemInfoSync();
-      this.wh = res.windowHeight;
+      this.wh = res.windowHeight-60;
       this.getCateList();
-      console.log(this.wh);
+      
     },
     methods: {
       async getCateList() {
@@ -104,9 +105,7 @@
     }
   }
 
-  .right-scroll {
-    height: wh;
-  }
+  
 
   .cate-lv2-item {
     font-size: 12px;
@@ -134,6 +133,7 @@
       }
 
       text {
+        margin-top: 5px;
         font-size: 12px;
         text-align: center;
       }
