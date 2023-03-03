@@ -40,7 +40,9 @@
 </template>
 
 <script>
-  export default {
+ import bageMix from '@/mixin/tabbar-badge.js'
+ export default {
+   mixins: [bageMix],
     data() {
       return {
         swaperList: [],

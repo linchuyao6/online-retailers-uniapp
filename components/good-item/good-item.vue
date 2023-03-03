@@ -4,12 +4,14 @@
 
       <!-- 左侧盒子部分 -->
       <view class="good_item_left">
-        <image :src="goods.goods_small_logo||defultPic"></image>
+        <radio  :checked="goods.goods_state" color="#c00" v-if="showRadio" @click="radioClickHandler"></radio>
+        <image :src="goods.goods_small_logo||defultPic" class="good_item_image"></image>
       </view>
       <view class="good_item_right">
         <view class="good_item_name">{{goods.goods_name}}</view>
         <view class="good_item_price">
           <view class="price">￥{{goods.goods_price|toFixed}}</view>
+          <uni-number-box :min="1" :value="goods.goods_count" v-if="showNumBox" @change="changeNum"></uni-number-box>
         </view>
 
       </view>
@@ -30,6 +32,29 @@
       goods: {
         type: Object,
         default: {}
+      },
+      showNumBox:{
+        type:Boolean,
+        default:false
+      },
+      showRadio:{
+        type:Boolean,
+        default:false
+      }
+    },
+    methods:{
+      radioClickHandler(){
+        this.$emit('radio-change',{
+          goods_id:this.goods.goods_id,
+          goods_state:!this.goods.goods_state
+        })
+      },
+      changeNum(val){
+        // console.log(e);
+        this.$emit('changeNum',{
+          goods_count:+val,
+          goods_id:this.goods.goods_id
+        })
       }
     },
     filters: {
@@ -41,18 +66,18 @@
 </script>
 
 <style lang="scss">
-  .goods_list {
+
     .good_item {
       display: flex;
       padding: 10px 5px;
       border-bottom: 1px solid #efefef;
-
+      width: 750rpx;
+      box-sizing: border-box;
       .good_item_left {
-        image {
-          width: 100px;
-          height: 100px;
-          margin-right: 5px;
-        }
+        display: flex;
+        padding-left: 5px;
+        justify-content: space-between;
+        align-items: center;
       }
 
       .good_item_right {
@@ -63,6 +88,10 @@
         .good_item_name {}
 
         .good_item_price {
+          display: flex;
+          flex:1;
+          justify-content: space-between;
+          align-items: center;
           .price {
             color: #c00;
             font-size: 17px;
@@ -70,5 +99,10 @@
         }
       }
     }
-  }
+  
+  .good_item_image  {
+         height: 100px;
+         width: 100px;
+          margin-right: 5px;
+        }
 </style>

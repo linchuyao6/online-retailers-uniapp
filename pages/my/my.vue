@@ -5,7 +5,9 @@
 </template>
 
 <script>
+  import bageMix from '@/mixin/tabbar-badge.js'
   export default {
+    mixins: [bageMix],
     data() {
       return {
         
