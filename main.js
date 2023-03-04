@@ -8,11 +8,17 @@ import store from './store/store.js'
 uni.$http=$http
 Vue.config.productionTip = false
 // 请求拦截器
-$http.beforeRequest=function(){
+$http.beforeRequest=function(option){
   uni.showLoading({
     title:"正在加载",
     icon:"none"
-  })
+  });
+  if(option.url.indexOf('/my/')!==-1){
+    option.header={
+      Authorization:store.state.my_address.token
+    };
+
+  }
 }
 // 响应拦截器
 $http.afterRequest=function(){
