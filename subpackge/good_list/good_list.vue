@@ -36,6 +36,7 @@
       console.log(option);
       this.obj.query = option.query || '';
       this.obj.cid = option.cid || '';
+      // console.log(this.obj.query+'ss');
       this.getGoodList();
     },
     onPullDownRefresh() {
@@ -51,7 +52,7 @@
         this.isLoading=true
         const {
           data: res
-        } = await uni.$http.get('/goods/search?pagenum=',this.obj)
+        } = await uni.$http.get('/goods/search',this.obj)
         this.isLoading=false
         // 这里如果传入了参数，在请求完数据后立刻执行回调函数，阻止下拉刷新
         

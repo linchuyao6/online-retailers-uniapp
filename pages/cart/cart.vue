@@ -1,6 +1,6 @@
 <template>
-  <view>
-    <view class="container" v-if="cart.length">
+  <view class="container">
+    <view  v-if="cart.length">
       <!-- 收货地址 -->
       <view class="address">
         <addresss-box></addresss-box>
@@ -67,7 +67,7 @@
 
 <style lang="scss">
   .container {
-    margin-bottom: 50px;
+    padding-bottom: 50px;
   }
 
   .cart-title {

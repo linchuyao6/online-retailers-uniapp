@@ -1,6 +1,6 @@
 <template>
   <view>
-    <view class="good_item">
+    <view class="good_item" @click="gotoDetail()">
 
       <!-- 左侧盒子部分 -->
       <view class="good_item_left">
@@ -54,6 +54,12 @@
         this.$emit('changeNum',{
           goods_count:+val,
           goods_id:this.goods.goods_id
+        })
+      },
+      gotoDetail(){
+        if(this.showRadio) return
+        uni.navigateTo({
+          url:'/subpackge/good_detail/good_detail?goods_id='+this.goods.goods_id
         })
       }
     },

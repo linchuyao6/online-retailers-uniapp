@@ -23,13 +23,13 @@
         <view class="floor-box">
           <view class="left-floor-box">
             <image :src="item.product_list[0].image_src" :style="{width:item.product_list[0].image_width+'rpx'}"
-              mode="widthFix">
+              mode="widthFix" @click="gotoList(item.product_list[0].url)">
             </image>
 
           </view>
           <view class="right-floor-box">
             <view class="right-floor-item" v-for="(item2,index) in item.product_list" :key="index">
-              <image :src="item2.image_src" v-if="index!=0" :style="{width:item2.image_width+'rpx'} " mode="widthFix"></image>
+              <image :src="item2.image_src" v-if="index!=0" :style="{width:item2.image_width+'rpx'} " mode="widthFix" @click="gotoList(item2.url)"></image>
             </view>
           </view>
         </view>
@@ -94,6 +94,11 @@
       },
       gotoSearch(){
         console.log('ok');
+      },
+      gotoList(url){
+        uni.navigateTo({
+          url:url
+        })
       }
     },
 

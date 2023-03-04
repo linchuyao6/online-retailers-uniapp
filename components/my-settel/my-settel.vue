@@ -108,6 +108,7 @@
     padding-left: 5px;
     font-size: 14px;
     border-top: 1px solid #efefef;
+    background-color: white;
 
     .amount {
       text {

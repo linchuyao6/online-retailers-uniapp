@@ -65,7 +65,7 @@
       gotoDetail(item){
         console.log('item');
         uni.navigateTo({
-          url:'/subpackge/good_detail/good_detail?good_id='+item.goods_id
+          url:'/subpackge/good_detail/good_detail?goods_id='+item.goods_id
         })
       },
       pushResult(wk){
